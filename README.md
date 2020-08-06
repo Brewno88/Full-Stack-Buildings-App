@@ -1,6 +1,6 @@
 # Buildings list App
 
-🖥 [Live-demo](https://buildings-app.netlify.app/)
+<!-- 🖥 [Live-demo](https://buildings-app.netlify.app/) -->
 
 <img src="src/assets/WebScore.png"
      alt="PWA Score"
