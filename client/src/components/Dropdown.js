@@ -13,13 +13,13 @@ const FiltersDropdown = () => {
 	const filterTypes = type =>
 		dispatchFilters({
 			type: 'TYPE',
-			payload: type,
+			payload: { type, buildings },
 		});
 
 	const filterStatus = status =>
 		dispatchFilters({
 			type: 'STATUS',
-			payload: status,
+			payload: { status, buildings },
 		});
 
 	return (
@@ -66,6 +66,7 @@ const FiltersDropdown = () => {
 				onClick={() =>
 					dispatchFilters({
 						type: 'RESET',
+						payload: buildings,
 					})
 				}
 			>

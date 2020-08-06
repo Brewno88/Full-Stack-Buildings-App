@@ -1,5 +1,5 @@
 import React from 'react';
-import { MyFilters } from '../Elements';
+import { MyFilters } from '../Elements.style';
 import FilterButtons from './Dropdown';
 
 const Filters = () => {

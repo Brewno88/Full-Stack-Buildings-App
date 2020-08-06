@@ -5,7 +5,7 @@ import {
 	MyCardDetails,
 	MyCardDetailsList,
 	MyCardDetailsRow,
-} from '../Elements';
+} from '../Elements.style';
 import { BuildContext } from '../context/GlobalContext';
 
 const Card = ({ building }) => {

@@ -9,9 +9,9 @@ export const MyHeader = styled(motion.header)`
 	position: fixed;
 	z-index: 1;
 	margin: 0 auto 0 0;
+	top: 0;
 	/* Wrap header components */
-	.whole {
-		max-width: 1480px;
+	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -84,19 +84,15 @@ export const MyFilters = styled.div`
 //**********************************
 //* ------ MAIN CONTAINER --------
 // **********************************
-export const MyContainer = styled.div`
-	position: relative;
-	max-width: 1480px;
-	margin: auto;
-	padding-bottom: 60px;
-	display: flex;
-	justify-content: space-between;
+// export const MyContainer = styled.div`
+// 	position: relative;
+// 	max-width: 1240px;
+// 	margin: auto;
 
-	@media (min-width: 320px) {
-		padding: 0.4rem;
-		flex-direction: column;
-	}
-`;
+// 	@media (min-width: 320px) {
+// 		padding: 0.4rem;
+// 	}
+// `;
 
 //**********************************
 //* ------ CARD CONTAINER --------
@@ -135,18 +131,21 @@ export const MyCardGrid = styled(motion.div)`
 //* ------ CARD --------
 // **********************************
 export const MyCard = styled(motion.div)`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
 	img {
 		width: 100%;
+		height: 200px;
+		object-fit: cover;
 	}
 
 	@media (min-width: 320px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		flex: 0 0 auto;
+		padding-top: 0.5rem;
 		width: ${({ sideBar }) => (sideBar ? '70%' : '100%')};
 		margin: 0.2rem;
+
 		h2 {
 			font-size: ${({ sideBar }) => (sideBar ? '1rem' : '1.5rem')};
 		}
