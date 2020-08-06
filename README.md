@@ -2,7 +2,7 @@
 
 <!-- 🖥 [Live-demo](https://buildings-app.netlify.app/) -->
 
-<img src="src/assets/WebScore.png"
+<img src="./client/src/assets/WebScore.png"
      alt="PWA Score"
      style="width: 300px;" />
 
