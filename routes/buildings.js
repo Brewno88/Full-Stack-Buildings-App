@@ -1,5 +1,6 @@
 const router = require('express').Router();
 let Building = require('../models/building.model');
+const e = require('express');
 
 const buildingStructure = req => {
 	return {
@@ -27,9 +28,16 @@ const buildingStructure = req => {
 router.get('/', async (req, res) => {
 	try {
 		const buildings = await Building.find().sort({ addedOn: -1 });
-		res.status(200).json(buildings);
+		res.status(200).json({
+			success: true,
+			count: buildings.length,
+			data: buildings,
+		});
 	} catch (error) {
-		res.status(400).json({ message: error.message });
+		res.status(500).json({
+			success: false,
+			error: `Error: ${error.message}`,
+		});
 	}
 });
 
@@ -41,7 +49,7 @@ router.get('/:id', async (req, res) => {
 		const building = await Building.findById(req.params.id);
 		res.status(200).json(building);
 	} catch (error) {
-		res.status(404).json({ message: error.message });
+		res.status(404).json({ success: false, error: `Error: error.message` });
 	}
 });
 
@@ -56,7 +64,7 @@ router.patch('/edit/:id', async (req, res) => {
 		);
 		res.status(200).json(updatedBuildings);
 	} catch (error) {
-		res.status(400).json({ message: error.message });
+		res.status(400).json({ success: false, error: `Error: error.message` });
 	}
 });
 
@@ -67,10 +75,22 @@ router.post('/', async (req, res) => {
 	const building = new Building(buildingStructure(req));
 	try {
 		const newBuilding = await building.save();
-
-		res.status(201).json(newBuilding);
+		res.status(201).json({
+			success: true,
+			data: newBuilding,
+		});
 	} catch (error) {
-		res.status(400).json({ message: error.message });
+		if (error.name === 'ValidationError') {
+			const messages = Object.values(err.errors).map(val => val.message);
+			return res.status(400).json({
+				success: false,
+				error: messages,
+			});
+		} else {
+			res
+				.status(500)
+				.json({ success: false, message: `Server Error: ${err.message}` });
+		}
 	}
 });
 
@@ -79,10 +99,12 @@ router.post('/', async (req, res) => {
 // @access Public
 router.delete('/:id', async (req, res) => {
 	try {
-		const removedBuilding = await Building.remove({ _id: req.params.id });
-		res.status(200).json(removedBuilding);
+		const removedBuilding = await Building.deleteOne({ _id: req.params.id });
+		res.status(200).json({ success: true, removedBuilding });
 	} catch (error) {
-		res.status(404).json({ message: error.message });
+		res
+			.status(404)
+			.json({ success: false, message: `Error: ${error.message}` });
 	}
 });
 
