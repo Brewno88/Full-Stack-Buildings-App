@@ -21,7 +21,7 @@ mongoose
 const PORT = process.env.PORT || 5000;
 
 // Routes
-const buildingsRouter = require('/routes/buildings');
+const buildingsRouter = require('./routes/buildings');
 app.use('/api/buildings', buildingsRouter);
 
 // Serve static assets if in production
