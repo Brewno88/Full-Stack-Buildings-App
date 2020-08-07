@@ -16,10 +16,12 @@ export const BuildProvider = ({ children }) => {
 
 	const getBuildings = async () => {
 		try {
-			const buildings = await axios.get('/api/buildings').then(res => res.data);
+			const buildings = await axios
+				.get('/api/buildings')
+				.then(res => res.data.data);
 			setBuildings({ fetching: false, data: [...buildings] });
 		} catch (error) {
-			console.log(error.message);
+			console.log(`Error getting buildings: ${error.message}`);
 		}
 	};
 
