@@ -9,7 +9,6 @@ const SET = 'SET';
 export const selectedReducer = (state, action) => {
 	switch (action.type) {
 		case SELECTED:
-			console.log(action.payload);
 			return action.payload;
 		default:
 			return state;
