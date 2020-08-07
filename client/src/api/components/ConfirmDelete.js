@@ -6,6 +6,7 @@ import axios from 'axios';
 function ConfirmDelete({ id, setOnDelete }) {
 	const confirmDelete = () => {
 		axios.delete(`/api/buildings/${id}`);
+		window.location.reload();
 	};
 
 	return (

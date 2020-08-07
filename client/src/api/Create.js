@@ -35,6 +35,7 @@ function Buildings() {
 		console.log(details);
 		axios.post('/api/buildings', details);
 		setDetails(initialState);
+		window.location.reload();
 	};
 
 	return (
