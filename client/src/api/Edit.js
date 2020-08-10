@@ -36,7 +36,7 @@ function Buildings() {
 
 	const onFormSubmit = async e => {
 		e.preventDefault();
-		axios.patch(`/api/buildings/edit/${id}`, update);
+		axios.patch(`/api/buildings/${id}`, update);
 		window.location.reload();
 	};
 
