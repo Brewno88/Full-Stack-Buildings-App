@@ -56,7 +56,7 @@ router.get('/:id', async (req, res) => {
 // @route PATCH api/buildings/edit/:id
 // @desc EDIT a building
 // @access Public
-router.patch('/edit/:id', async (req, res) => {
+router.put('/edit/:id', async (req, res) => {
 	try {
 		const updatedBuildings = await Building.findByIdAndUpdate(
 			{ _id: req.params.id },
