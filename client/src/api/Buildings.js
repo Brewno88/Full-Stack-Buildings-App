@@ -31,7 +31,7 @@ function Buildings() {
 							<td>{build.location}</td>
 							<td>
 								<Link
-									to={`/buildings/edit/${build._id}`}
+									to={`/buildings/${build._id}`}
 									onClick={() =>
 										dispatchSelected({ type: 'SELECTED', payload: build })
 									}
