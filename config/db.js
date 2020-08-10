@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
 	try {
 		const conn = await mongoose.connect(
-			process.env.DB_URI ||
-				'mongodb://user:Lupp0l0@ds263656.mlab.com:63656/heroku_8dcgz6ct',
+			process.env.DB_URI,
+			// ||
+			// 	'mongodb://user:Lupp0l0@ds263656.mlab.com:63656/heroku_8dcgz6ct',
 			{
 				useNewUrlParser: true,
 				useUnifiedTopology: true,
