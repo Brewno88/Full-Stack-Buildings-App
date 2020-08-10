@@ -22,9 +22,6 @@ app.use('/api/buildings', buildingsRouter);
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
 	// Set a static folder
-	// app.get('client/*', (req, res) =>
-	// 	res.sendFile(path.join(__dirname, 'client/build/index.html'))
-	// );
 	app.use(express.static('client/build'));
 }
 
@@ -33,6 +30,3 @@ app.listen(PORT, () =>
 		`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
 	)
 );
-// app.get('/', (req, res) => {
-// 	res.send('API Homepage');
-// });
