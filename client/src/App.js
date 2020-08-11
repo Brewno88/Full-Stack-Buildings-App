@@ -15,9 +15,9 @@ function App() {
 			<Router>
 				<Header />
 				<Route path='/' exact component={CardsGrid} />
-				<Route path='/buildings' exact component={Buildings} />
-				<Route path='/buildings/create' component={Create} />
-				<Route path='/buildings/:id' component={Edit} />
+				<Route path='/api/buildings' exact component={Buildings} />
+				<Route path='/api/buildings/create' component={Create} />
+				<Route path='/api/buildings/:id' component={Edit} />
 			</Router>
 		</BuildProvider>
 	);
